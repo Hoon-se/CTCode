@@ -1,0 +1,35 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+int n, k;
+
+int main()
+{
+	cin >> n;
+	int *list;
+	list = new int[n];
+	int tmp;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> list[i];
+	}
+	for (int j = 0; j < n - 1; j++)
+	{
+		for (int k = j + 1; k < n; k++)
+		{
+			if (list[j] > list[k])
+			{
+				tmp = list[k];
+				list[k] = list[j];
+				list[j] = tmp;
+			}
+		}
+	}
+	for (int i = 0; i < n; i++)
+	{
+		cout << list[i] << endl;
+	}
+	delete[] list;
+}
