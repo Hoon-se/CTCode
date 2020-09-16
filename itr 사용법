@@ -1,0 +1,22 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+int n, k;
+
+int main()
+{
+	cin >> n;
+	vector<int> list;
+	list.resize(n);
+	for (int i = 0; i < n; i++)
+	{
+		cin >> list[i];
+	}
+	sort(list.begin(), list.end());
+	for (auto &itr : list)
+	{
+		cout << itr << endl;
+	}
+}
