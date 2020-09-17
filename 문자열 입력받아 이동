@@ -1,0 +1,43 @@
+//문자열 입력 받는 것 참고
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<string>
+using namespace std;
+
+int n;
+string moves;
+int x = 1, y = 1;
+
+char list[4] = { 'L','R','U','D' };
+int dx[4] = { 0,0,-1,1 };
+int dy[4] = { -1,1,0,0 };
+
+
+int main()
+{
+	cin >> n;
+	//숫자 받고 문자열을 그대로 받기 위해 cin.ignore()사용
+	//사용안할시 문자열 입력 못받음
+	cin.ignore();
+	getline(cin, moves);
+	for (int i = 0; i < moves.size(); i++)
+	{
+		char mv = moves[i];
+
+		int nx = -1, ny = -1;
+		for (int j = 0; j < 4; j++)
+		{
+			if (mv == list[j])
+			{
+				nx = x + dx[j];
+				ny = y + dy[j];
+			}
+		}
+		if (nx<1 || ny<1 || nx>n || ny>n)
+			continue;
+		x = nx;
+		y = ny;
+	}
+	cout << x << ' ' << y << endl;
+}
