@@ -1,0 +1,29 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<string>
+using namespace std;
+
+int dx[] = { -2,-1,1,2,2,1,-1,-2 };
+int dy[] = { -1,- 2,-2,-1,1,2,2,1 };
+
+
+int main()
+{
+	string str;
+	cin >> str;
+	int row = str[1] - '0'; // '1' -> 1 변환
+	int col = str[0] - 'a' + 1; // 'a'-> 1 변환
+	int cnt = 0;
+	for (int i = 0; i < 8; i++)
+	{
+		int nextr = row + dx[i];
+		int nextc = col + dy[i];
+		if (nextr >= 1 && nextr <= 8 && nextc >= 1 && nextc <= 8)
+		{
+			cnt++;
+		}
+			
+	}
+	cout << cnt;
+}
