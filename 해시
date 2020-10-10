@@ -1,0 +1,46 @@
+#include<iostream>
+#include<vector>
+#include<unordered_map>
+#include<string>
+
+using namespace std;
+
+string solution(vector<string> participant, vector<string> completion)
+{
+	unordered_map<string, int> strMap;
+
+	string answer = "";
+	for (auto elem : completion)
+	{
+		if (strMap.end() == strMap.find(elem)) 
+			strMap.insert(make_pair(elem, 1));
+		else
+			strMap[elem]++;
+	}
+
+	for (auto elem : participant)
+	{
+		if (strMap.end() == strMap.find(elem))
+		{
+			answer = elem;
+			break;
+		}
+		else
+		{
+			strMap[elem]--;
+			if (strMap[elem] < 0)
+			{
+				answer = elem;
+				break;
+			}
+		}
+	}
+	return answer;
+}
+
+int main()
+{
+	vector<string> participant{ "mislav", "stanko", "mislav", "ana" };
+	vector<string> completion{ "stanko", "ana", "mislav" };
+	cout << solution(participant, completion) << endl;
+}
