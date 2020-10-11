@@ -1,0 +1,33 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<stack>
+#include<algorithm>
+using namespace std;
+
+vector<int> solution(vector<int> answers) {
+	vector<int> answer;
+	int n1[5] = { 1,2,3,4,5 };
+	int n2[8] = { 2,1,2,3,2,4,2,5 };
+	int n3[10] = { 3,3,1,1,2,2,4,4,5,5 };
+	int size = answers.size();
+	int result = 0;
+	vector<int> cnt(3);
+
+	for (int i = 0; i < size; i++)
+	{
+		if (n1[i % 5] == answers[i])
+			cnt[0]++;
+		if (n2[i % 8] == answers[i])
+			cnt[1]++;
+		if (n3[i % 10] == answers[i])
+			cnt[2]++;
+	}
+	
+	result = *max_element(cnt.begin(), cnt.end());
+	//result = max(max(cnt[0],cnt[1]),cnt[2]);
+	for (int i = 0; i < 3; i++)
+		if (result == cnt[i])
+			answer.push_back(i + 1);
+	return answer;
+}
