@@ -1,0 +1,28 @@
+vector<int> solution(vector<int> arr)
+{
+	vector<int> answer;
+
+	int size = arr.size();
+	int num = arr[0];
+	answer.push_back(num);
+
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] != num)
+			answer.push_back(arr[i]);
+		num = arr[i];
+	}
+
+	return answer;
+}
+
+
+//unique함수 사용
+vector<int> solution1(vector<int> arr)
+{
+	arr.erase(unique(arr.begin(), arr.end()), arr.end());
+
+	vector<int> answer = arr;
+	
+	return arr;
+}
