@@ -44,3 +44,21 @@ int main()
 	vector<string> completion{ "stanko", "ana", "mislav" };
 	cout << solution(participant, completion) << endl;
 }
+
+
+string solution(vector<string> participant, vector<string> completion)
+{
+	unordered_map<string, int> a;
+	for(auto& elem : participant) a[i]++;
+	for(auto& elem : completion) a[i]--;
+	for(auto& elem : a){
+		if(elem.second > 0){
+			answer = i.first;
+			break;
+		}
+	}		
+}
+
+
+
+
