@@ -1,0 +1,19 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int k;
+bool cmp(string a, string b){
+    if(a[k]!=b[k])
+        return a[k]<b[k];//인덱스 k를 기준으로 오름차순
+    else
+        return a<b; // 같을 시 문자 오름차순
+}
+vector<string> solution(vector<string> strings, int n) {
+    vector<string> answer;
+    k = n;
+    sort(strings.begin(), strings.end(), cmp);
+    answer = strings;
+    return answer;
+}
