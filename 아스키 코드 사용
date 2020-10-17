@@ -1,0 +1,42 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+bool solution(string s) {
+    bool answer = true;
+
+    if(s.length() !=4 && s.length() != 6)
+    {
+       answer = false;
+    }
+    for(int i = 0 ; i < s.length();i++){
+        if(!(s[i] >= '0' && s[i] <= '9'))
+            answer =  false;
+    }
+    return answer;
+}
+
+//아스키코드
+//A = '65', Z = '90'
+//a = '97', z = '122'
+
+//아스키코드 사용
+#include <string>
+#include <vector>
+
+using namespace std;
+
+bool solution(string s) {
+    bool answer = true;
+
+    if(s.length() !=4 && s.length() != 6)
+    {
+       answer = false;
+    }
+    for(int i = 0 ; i < s.length();i++){
+        if(!(s[i] >= 48 && s[i] <= 57))
+            answer =  false;
+    }
+    return answer;
+}
