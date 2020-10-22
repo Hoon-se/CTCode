@@ -1,0 +1,35 @@
+#include<iostream>
+
+using namespace std;
+
+int findstring(string parent, string pattern)
+{
+	int parentsize = parent.size();
+	int patternsize = pattern.size();
+
+	for (int i = 0; i <= parentsize - patternsize; i++)
+	{
+		bool flag = true;
+		for (int j = 0; j<patternsize; j++)
+		{
+			if (parent[i + j] != pattern[j])
+			{
+				flag = false;
+				break;
+			}
+		}
+		if (flag)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+int main()
+{
+	string a = "Hello World";
+	string n = "llo W";
+	int result = findstring(a, n);
+	cout << result +1 << endl;
+}
